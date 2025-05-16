@@ -1,9 +1,12 @@
-name: Executar script de temperatures diari a les 23:59
+name: Executar script de temperatures en push
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   run-script:
@@ -33,4 +36,3 @@ jobs:
           git add temp_*.json
           git commit -m "Actualització automàtica de temperatures" || echo "No hi ha canvis per commitejar"
           git push
-
