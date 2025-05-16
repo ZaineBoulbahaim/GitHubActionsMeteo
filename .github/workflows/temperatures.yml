@@ -1,17 +1,18 @@
-name: Executar srcipt de temperatures Manresa
+name: Executar script de temperatures cada 6 minuts
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '*/6 * * * *'
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar el repositori
+      - name: Checkout del codi
         uses: actions/checkout@v3
 
-      - name: Configuració Python
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
